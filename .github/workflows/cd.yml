@@ -44,6 +44,13 @@ jobs:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         project_id: ${{ secrets.GCP_PROJECT_ID }}
 
+    - name: Set Google Cloud Project ID
+      run: gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
+
     - name: Deploy to Cloud Run
       run: |
-        gcloud run deploy hello-world-app --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/hello-world-app:latest --region ${{ secrets.GCP_REGION }} --platform managed --allow-unauthenticated
+            gcloud run deploy hello-world-app \
+            --image gcr.io/***/hello-world-app:latest \
+            --region *** \
+            --platform managed \
+            --allow-unauthenticated
