@@ -38,7 +38,7 @@ jobs:
         docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/hello-world-app:latest
 
     - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@latest
+      uses: google-github-actions/setup-gcloud@v2
       with:
         version: 'latest'
         service_account_key: ${{ secrets.GCP_SA_KEY }}
